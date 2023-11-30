@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>ByclassName</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <!-- 복잡하면 한글부터 짜고 코드로 옮기기 -->
+
+    <div class="popup-box1" id="alert-box">
+      <p class="title1">알림창임</p>
+      <button class="title1" onclick="popup('none')">닫기</button>
+    </div>
+
+    <button onclick="아이디비번알림창('아이디 입력해')">버튼 1 열기</button>
+    <button onclick="아이디비번알림창('비밀번호 입력해')">버튼 2 열기</button>
+
+
+  <script>
+  // getElementsByclassName을 쓸때 주의점!
+  // class는 중복 사용 가능, id는 각 1개만 존재해서 중복 불가
+  // class를 쓸 때는 위에서 몇 번째 인자? 꼭 명시해줘야함 -> getElementsByClassName('title1')[0]
+
+  function 아이디비번알림창(구멍) {
+    document.getElementsByClassName('title1')[0].innerHTML = 구멍; // class명이 'title1'인 요소중에 맨 위에서 첫번째 의미
+    document.getElementById('alert-box').style.display = 'block';
+  }
+
+  function popup(구멍) {
+    document.getElementById('alert-box').style.display = 구멍;
+  }
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

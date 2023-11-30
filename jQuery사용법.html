@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery사용법</title>
+  </head>
+  <body>
+  <p class="hello">안녕</p>
+  <p class="hello">안녕</p>
+  <p class="hello">안녕</p>
+  <button id="test-btn">버튼</button>
+
+  <!-- jQuery 설치 --> 
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous">
+  </script>
+
+  <!-- 거의 모든 자바스크립트 라이브러리는 <body>끝나기 전에 넣는것을 권장 why? 페이지 로딩 성능 때문에-->
+  </body>
+
+
+  <script>
+    // jQuery사용 시 주의점! $('셀렉터')로 찾으면 뒤에 .html 같은 jQuery함수만(=메소드) 올 수 있음! 생 js문법은 안됨
+    //  <!-- <p>태그 글자 '안녕'을 '바보로 변경하려면?' -->
+    document.querySelector('.hello').innerHTML = '바보'; // javaScript사용 
+
+    $('.hello').html('바보'); // jQery사용 
+
+    $('.hello').css('color', 'blue')  // jQery사용해서 css변경
+    // // addClass(), removeClass(), toggleClass() 
+    // 참고) toggle이란, 오직 두 가지 상황에서 스위치 누르면 한 값, 다시 한번 누르면 다른 값으로 변하는 것을 의미
+
+    // <p>태그가 여러개인 경우, 한번에 다 바꾸려면? jQuery가 유용!
+    $('.hello').html('바보');
+
+    // addEventListener를 jQuery에서 사용하려면 on 으로 변경
+    // javaScript사용 시
+    document.querySelector('#test-btn').addEventListener('click', function(){}); 
+     
+    // jQery사용 
+     $('#test-btn').on('click', function(){});
+
+    // style변경도 가능
+    $('#test-btn').on('click', function(){
+      $('.hello').slideUp();
+    });
+
+
+  </script>
+
+
+
+</html>

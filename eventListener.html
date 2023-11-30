@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>eventListener</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+   
+    <div class="popup-box1" id="alert-box">
+      <p id="title">알림창임</p>
+      <button id="close">닫기</button> 
+      <!-- addEventListener를 쓰면? onclick안써도 됨.  html 안에 자바스크립트 안적고도 똑같이 개발가능.
+        이 함수를 쓸 때는 파라미터 2개를 꼭 잘 써야함 !-->
+    </div>
+
+    <button onclick="아이디알림창()">버튼 1 열기</button>
+    <button onclick="비번알림창()">버튼 2 열기</button>
+
+
+  <script>
+  // event가 뭘까? 유저가 내 웹사이트에 들어와서 하는 조작을 감시하는 역할 (클릭, 키입력, 스크롤, 드래그 등))
+  // event를 감지하고 싶으면 addEventListener('event명') 쓰면 된다.
+  // 이벤트가 일어나길 기다리는 친구가 eventListener이고 이벤트가 일어나면 내부 코드를 실행해주는 고마운 문법.
+  // event 파라미터에 들어가는 function(){}함수는 = '콜백함수'! '무언가 순차적으로 실행하고 싶을 때' 사용!
+  // 그냥 함수 안에 함수 넣으라고 하면 '아 저건 콜백함수구나~' 라고 반응하면 됨
+  
+    document.getElementById('close').addEventListener('click', function(){
+      document.getElementById('alert-box').style.display = 'none';
+    });
+
+  // onclick 없이도 addEventListener()함수 를 이용해서 사용할 수 있음 (아래는 이전 코드)
+  // function popup(구멍){
+  //   document.getElementById('alert-box').style.display = 구멍;
+  // }
+
+
+  function 아이디알림창() {
+    document.getElementById('title').innerHTML = '아이디를 입력하세요';
+    document.getElementById('alert-box').style.display = 'block';
+  }
+
+  function 비번알림창() {
+    document.getElementById('title').innerHTML = '비밀번호를 입력하세요';
+    document.getElementById('alert-box').style.display = 'block';
+  }
+
+
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

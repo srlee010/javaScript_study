@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>알림창(parameter)</title>
+    <link rel="stylesheet" href="/UIbutton.css">
+  </head>
+  <body>        
+    <!-- onclick 속성? 버튼 클릭 시, 자바스크립트가 실행되게 함   -->
+
+    <div class="alert-box" id="alert">알림창임
+    <button onclick="openPopup('none')">닫기</button>
+    <!-- 
+      <button onclick="document.getElementById('alert').style.display = 'none';">닫기
+      </button> -->
+    </div>
+    
+    <!-- 
+      <button onclick="document.getElementById('alert').style.display = 'block';">확인 
+    </button>  -->
+    <button onclick="openPopup('block')">알림창 여는 버튼</button>
+
+<!-- // function 문법 왜 사용할까?
+// 긴 코드를 짧은단어로 축약하고, 재사용에 용이해서
+// CSS의 class와 비슷하다고 생각하면 됨  -->
+
+<script>
+
+// function openPopup(){
+//   document.getElementById('alert').style.display = 'block';
+// } 
+
+// function closePopup(){
+//   document.getElementById('alert').style.display = 'none';
+// }
+
+// ---------------------------------------
+// 전에는 기능 2개를 축약하려고 함수 2개나 만들었음
+// 함수 하나만으로 여러가지 기능 코드를 실행할 수 있는 법? 
+// = 구멍 문법(=파라미터)
+// openPopup('안녕');
+// 구멍에 '안녕'을 넣어서 알림창 열기 안의 코드를 실행하란 뜻
+// 그럼 이걸 왜, 어디에 쓰는데? 🤔 
+// 비슷한 함수가 많으면 쉽게 바뀔수있는 가변적인 부분을 구멍뚫기
+// 구멍(파라미터) 작명은 아무렇게나 가능, 여러개도 가능
+// function, 파라미터는 필수 문법이 아님 편의를 위해 쓰는 것 뿐
+// ---------------------------------------
+
+function openPopup(구멍){
+  document.getElementById('alert').style.display =  구멍;
+} 
+
+openPopup('block');  // 이렇게 쓰면 알림창이 열림 
+openPopup('none');  // 이렇게 쓰면 알림창이 닫힘 
+
+
+// 파라미터 문법 예시 2)
+function plus(구멍){
+  2 + 구멍 }
+
+plus(1); // 구멍자리에 1 넣어서 plus 함수 안의 코드 실행해주셈
+plus(2); // 2 + 2 
+
+// 파라미터 작명은 아무렇게나 가능, 여러개 추가 가능
+// function openPopup(구멍, 구멍2){
+//   document.getElementById(구멍2).style.display = 구멍; }
+
+
+
+
+</script>
+
+  </body>
+</html>

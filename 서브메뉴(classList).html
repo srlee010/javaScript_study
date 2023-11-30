@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>서브메뉴(classList)</title>
+    <!-- bootstrap css 설치 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="서브메뉴(classList).css">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <span class="navbar-brand">Navbar</span>
+        <button class="navbar-toggler" type="button">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav> 
+    
+    <ul class="list-group"> 
+      <!--class를 여러개 쓰고 싶으면 띄어쓰기로 구분. css는 하단에 적을 수록 우선적용됨 즉, show가 우선-->
+      <!--class 부착식으로 개발하면 좋은점? 추후 애니메이션 추가가 쉬움, 재사용 편리함-->
+      <li class="list-group-item">An item</li>
+      <li class="list-group-item">A second item</li>
+      <li class="list-group-item">A third item</li>
+      <li class="list-group-item">A fourth item</li>
+      <li class="list-group-item">And a fifth one</li>
+    </ul>
+
+    <!-- bootstrap js 설치  -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+ 
+    <!-- jQuery 설치 --> 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous">
+    </script>
+
+    <!-- 거의 모든 자바스크립트 라이브러리는 <body>끝나기 전에 넣는것을 권장 why? 페이지 로딩 성능 때문에-->
+    </body>
+    
+  <script>
+      // [javaScript 사용 시]
+      // 1. <button> 클릭하면 <ul>에 show 클래스가 나오게 만들어보자  -> addEventListener
+      // 2. <ul> list-group 클래스에 show 추가해주세요~ 라고 코드를 작성  -> classList.add (이거 대신 아래꺼 사용)
+      // 3. show가 있으면 리스트 안보이게 제거, show가 없으면 리스트 보이게 추가하기.  -> classlist.toggle
+
+      document.getElementsByClassName('navbar-toggler')[0].addEventListener('click', function(){
+      document.getElementsByClassName('list-group')[0].classList.toggle('show');
+      });
+
+      // querySelector('.class'), querySelector('#id') 로 리팩토링 
+      // 맨위에 나오는 한개만 찾아주는 단점이 있는데 그런 경우, 
+      // querySelectorAll()[0] 을 사용하면 됨 (해당하는 모든 요소를 다 찾을 수 있음)
+
+      document.querySelector('.navbar-toggler').addEventListener('click', function(){
+      document.querySelector('.list-group').classList.toggle('show')  
+      });
+
+      // [jQuery 라이브러리 사용 시]
+      // jQuery: HTML조작문법을 쉽게 바꿔주는 라이브러리(jQuery,React,Vue가 있는데 리액트는 js숙련 후 사용))
+      // querySelector -> $
+      // addEventListener -> on
+      // 저는 jQuery말고 js배우고 싶은데요? 
+      // jQuery는 단지 라이브러리일 뿐, js랑 다른 문법쓰는거 아님! 용도: 함수명만 짧아질뿐
+
+      $('.navbar-toggler').on('click', function(){
+      $('.list-group').toggleClass('show')  
+      });
+
+
+  </script>
+
+
+
+  
+</html> 

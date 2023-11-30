@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>아이디비번창</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <!-- 복잡하면 한글부터 짜고 코드로 옮기기 -->
+
+    <div class="popup-box1" id="alert-box">
+      <p id="title">알림창임</p>
+      <button onclick="popup('none')">닫기</button>
+    </div>
+
+    <button onclick="아이디비번알림창('아이디 입력해')">버튼 1 열기</button>
+    <button onclick="아이디비번알림창('비밀번호 입력해')">버튼 2 열기</button>
+
+
+  <script>
+
+// 1. <p>태그 내용을 아이디입력으로 바꿈 2. 알림창 띄움
+//   document.getElementById('title').innerHTML = '아이디입력하세요';
+//  2. 알림창 띄움
+//   document.getElementById('alert-box').style.display = 'block';
+// 위 2개의 함수를 1개의 함수로 축약하기
+  function 아이디알림창() {
+    document.getElementById('title').innerHTML = '아이디를 입력하세요';
+    document.getElementById('alert-box').style.display = 'block';
+  }
+
+  function 비번알림창() {
+    document.getElementById('title').innerHTML = '비밀번호를 입력하세요';
+    document.getElementById('alert-box').style.display = 'block';
+  }
+
+  // ⭐️위 두개의 함수를 파라미터 문법 1개로 바꾸기! (훨씬 유용해짐)
+  // 가변적인 부분을 먼저 찾은 후 파라미터 사용 -> '아이디를 입력, 비밀번호를 입력'
+
+ 
+  function 아이디비번알림창(구멍){
+    document.getElementById('title').innerHTML = 구멍;
+    document.getElementById('alert-box').style.display = 'block';
+  }
+
+
+  function popup(구멍) {
+    document.getElementById('alert-box').style.display = 구멍;
+  }
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
